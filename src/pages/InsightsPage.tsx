@@ -155,15 +155,15 @@ const InsightsPage = () => {
             <motion.div variants={item} className="aurora-card">
               <h2 className="text-lg font-semibold mb-6">Skill Breakdown</h2>
               <div className="space-y-4">
-                {[
-                  { name: "Reading", icon: BookOpen, score: 88, color: "primary" },
-                  { name: "Listening", icon: Headphones, score: 76, color: "secondary" },
-                  { name: "Writing", icon: PenTool, score: 72, color: "accent" },
-                  { name: "General Knowledge", icon: Globe, score: 65, color: "green-400" },
+              {[
+                  { name: "Reading", icon: BookOpen, score: 88, bgColor: "bg-primary/20", textColor: "text-primary" },
+                  { name: "Listening", icon: Headphones, score: 76, bgColor: "bg-secondary/20", textColor: "text-secondary" },
+                  { name: "Writing", icon: PenTool, score: 72, bgColor: "bg-accent/20", textColor: "text-accent" },
+                  { name: "General Knowledge", icon: Globe, score: 65, bgColor: "bg-green-500/20", textColor: "text-green-400" },
                 ].map((skill) => (
                   <div key={skill.name} className="flex items-center gap-4">
-                    <div className={`w-10 h-10 rounded-lg bg-${skill.color}/20 flex items-center justify-center`}>
-                      <skill.icon className={`w-5 h-5 text-${skill.color}`} />
+                    <div className={`w-10 h-10 rounded-lg ${skill.bgColor} flex items-center justify-center`}>
+                      <skill.icon className={`w-5 h-5 ${skill.textColor}`} />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center justify-between mb-1">

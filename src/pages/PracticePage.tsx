@@ -216,26 +216,25 @@ const PracticePage = () => {
 
         {/* Skill Categories */}
         <motion.div variants={item} className="grid md:grid-cols-3 gap-4 mb-8">
-          {practiceCategories.map((cat) => {
-            const colorClass = cat.color === "primary" ? "bg-primary/20 text-primary" 
-              : cat.color === "secondary" ? "bg-secondary/20 text-secondary"
-              : "bg-accent/20 text-accent";
-            return (
-              <div key={cat.id} className="aurora-card-interactive">
-                <div className={`w-12 h-12 rounded-xl ${colorClass} flex items-center justify-center mb-4`}>
-                  <cat.icon className="w-6 h-6" />
-                </div>
-                <h3 className="font-semibold mb-1">{cat.name}</h3>
-                <p className="text-sm text-muted-foreground mb-3">
-                  {cat.questions} questions available
-                </p>
-                <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                  <Clock className="w-3 h-3" />
-                  <span>Avg. {cat.avgTime}</span>
-                </div>
+          {practiceCategories.map((cat) => (
+            <div key={cat.id} className="aurora-card-interactive">
+              <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
+                cat.id === "reading" ? "bg-primary/20 text-primary" 
+                : cat.id === "listening" ? "bg-secondary/20 text-secondary"
+                : "bg-accent/20 text-accent"
+              }`}>
+                <cat.icon className="w-6 h-6" />
               </div>
-            );
-          })}
+              <h3 className="font-semibold mb-1">{cat.name}</h3>
+              <p className="text-sm text-muted-foreground mb-3">
+                {cat.questions} questions available
+              </p>
+              <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                <Clock className="w-3 h-3" />
+                <span>Avg. {cat.avgTime}</span>
+              </div>
+            </div>
+          ))}
         </motion.div>
 
         {/* Filter Tabs */}
